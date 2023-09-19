@@ -43,6 +43,11 @@ namespace ChessGameDDD.Domain.Entities
             return FromLocation.ToString() + " -> " + ToLocation.ToString();
         }
 
+        public void IsAllowed(Board board, Piece piece)
+        {
+            
+        }
+
         internal Event MapToMoveMade()
         {
             return new MoveMadeEvent();

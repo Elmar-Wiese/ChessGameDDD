@@ -50,7 +50,7 @@ namespace ChessGameDDD.Domain.Entities
 
         private void When(MoveMadeEvent @event)
         {
-            Board.UpdateBoardPosition(@event/*.move*/);
+            Board.UpdateBoardPosition(@event.Move);
         }
     }
 }
