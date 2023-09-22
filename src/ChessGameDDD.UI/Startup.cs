@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ChessGameDDD.ApplicationLayer.CommandHandlers;
 
 namespace ChessGameDDD.UI
 {
@@ -28,6 +29,7 @@ namespace ChessGameDDD.UI
         {
 
             services.AddControllers();
+            services.AddScoped<MakeMoveCommandHandler>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ChessGameDDD.UI", Version = "v1" });
