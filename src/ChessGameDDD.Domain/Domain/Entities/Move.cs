@@ -1,6 +1,7 @@
 ﻿using ChessGameDDD.Domain.Core;
 using ChessGameDDD.Domain.Domain.Entities;
 using ChessGameDDD.Events;
+using System;
 using System.Collections.Generic;
 
 namespace ChessGameDDD.Domain.Entities
@@ -30,6 +31,11 @@ namespace ChessGameDDD.Domain.Entities
             }
 
             return move;
+        }
+
+        internal void IsAllowed(Board board, Piece pieceToMove)
+        {
+            // TODO: Check is move is valid on board
         }
 
         protected override IEnumerable<object> GetAtomicValues()

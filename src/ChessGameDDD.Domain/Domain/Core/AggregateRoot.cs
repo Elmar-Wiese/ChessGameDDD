@@ -98,6 +98,6 @@ namespace ChessGameDDD.Domain.Core
         /// <param name="@event">The event to handle.</param>
         /// <remarks>Because the parameter type of the specified event is dynamic,
         /// the appropriate overload of the When method is called.</remarks>
-        protected abstract void When(dynamic @event);
+        protected abstract void When(Event @event);
     }
 }

@@ -1,5 +1,4 @@
-﻿using ChessGameDDD.Domain.BusinessRules;
-using ChessGameDDD.Domain.Core;
+﻿using ChessGameDDD.Domain.Core;
 using ChessGameDDD.Events;
 using System;
 using System.Collections.Generic;
@@ -26,7 +25,6 @@ namespace ChessGameDDD.Domain.Entities
 
             // Check business rules
             pieceToMove.CanMakeMove(move, Board);
-            move.IsAllowed(Board, pieceToMove);
 
             // Create event
             var eventResult = move.MapToMoveMade();
@@ -35,12 +33,12 @@ namespace ChessGameDDD.Domain.Entities
             RaiseEvent(eventResult);
         }
 
-        protected override void When(dynamic @event)
+        protected override void When(Event @event)
         {
             switch (@event)
             {
-                case MoveMadeEvent:
-                    When(@event as MoveMadeEvent);
+                case MoveMadeEvent moveMadeEvent:
+                    When(moveMadeEvent);
                     break;
 
                 default:
@@ -50,7 +48,7 @@ namespace ChessGameDDD.Domain.Entities
 
         private void When(MoveMadeEvent @event)
         {
-            Board.UpdateBoardPosition(@event/*.move*/);
+            Board.UpdateBoardPosition(@event.Move);
         }
     }
 }

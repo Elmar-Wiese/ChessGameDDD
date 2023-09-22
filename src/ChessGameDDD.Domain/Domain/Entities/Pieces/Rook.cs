@@ -12,7 +12,7 @@ namespace ChessGameDDD.Domain.Entities.Pieces
 
         internal override void CanMakeMove(Move move, Board board)
         {
-            //base.CanMakeMove(move, board);
+            base.CanMakeMove(move, board);
             this.DirectionIsAllowed(move);
             this.MoveIsAllowedOnBoard(move, board);
         }
